@@ -4,6 +4,7 @@ TP final de Algoritmos y Programación 3 de FIUBA
 ## Build Status
 
 Next: [![Build Status](https://travis-ci.org/DiegoAlfonso2/Algo3TP2.svg?branch=next)](https://travis-ci.org/DiegoAlfonso2/Algo3TP2)
+
 Master: [![Build Status](https://travis-ci.org/DiegoAlfonso2/Algo3TP2.svg?branch=master)](https://travis-ci.org/DiegoAlfonso2/Algo3TP2)
 
 ## Workflow de control de cambios propuesto
