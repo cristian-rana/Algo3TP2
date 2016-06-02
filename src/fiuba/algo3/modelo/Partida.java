@@ -12,7 +12,7 @@ public class Partida {
 	public Partida(Jugador jug1, Jugador jug2) {
 		this.jugador1 = jug1;
 		this.jugador2 = jug2;
-		//TODO sacar hardcode del tamaño del tablero. Discutir como vamos
+		//TODO sacar hardcode del tamanio del tablero. Discutir como vamos
 		// a inicializar los mapas.
 		this.tablero = new Tablero(10, 10);
 		// TODO inicializar todo el equipo
