@@ -1,5 +1,6 @@
 package fiuba.algo3.modelo;
 
-public class Accion {
+public interface Accion {
+
 
 }
