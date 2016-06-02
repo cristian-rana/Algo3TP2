@@ -1,12 +1,12 @@
 package fiuba.algo3.modelo;
 
 public class Modo {
-	
+
 	private String avatar;
 	private int ataque;
 	private int distAtaque;
 	private int velocidad;
-	
+
 	public Modo(String avatar, int ataque, int distAtaque, int velocidad) {
 		this.avatar = avatar;
 		this.ataque = ataque;

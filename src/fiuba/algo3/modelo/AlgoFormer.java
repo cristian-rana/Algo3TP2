@@ -16,11 +16,13 @@ public class AlgoFormer {
 		this.modoActivo = modoHumanoide;
 		this.modoInactivo = modoAlterno;
 	}
-	
+
+
+
 	public String getNombre() {
 		return this.nombre;
 	}
-	
+
 	public String getAvatar() {
 		return modoActivo.getAvatar();
 	}
@@ -28,25 +30,25 @@ public class AlgoFormer {
 	public int getPuntosDeVida() {
 		return puntosDeVida;
 	}
-	
+
 	public int getPtosDeAtaque() {
 		return modoActivo.getAtaque();
 	}
-	
+
 	public int getDistanciaAtaque() {
 		return modoActivo.getDistAtaque();
 	}
-	
+
 	public int getVelocidad() {
 		return modoActivo.getVelocidad();
 	}
-	
+
 	public void cambiarModo() {
 		Modo tmp = modoActivo;
 		modoActivo = modoInactivo;
 		modoInactivo = tmp;
 	}
-	
+
 	public boolean estaVivo() {
 		return puntosDeVida > 0;
 	}

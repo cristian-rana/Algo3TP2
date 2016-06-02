@@ -19,14 +19,14 @@ public class Partida {
 			this.mover(mov);
 		}
 	}
-	
+
 	public void mover(List<String> mov){
 		mov.get(0);
 		
 		
 	}
 	
-	public AlgoFormer obtenerAlgoformer(String ubicacion) {
+	public AlgoFormer obtenerAlgoformer(Coordenada ubicacion) {
 		return this.tablero.contenidoCasillero(ubicacion);
 	}
 
