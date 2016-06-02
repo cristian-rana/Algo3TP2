@@ -1,33 +1,50 @@
 package fiuba.algo3.modelo;
 
-import java.util.List;
-
 public class Partida {
 
 	private Tablero tablero;
-	private int turno;
-	private List<Casillero> casilleros;
-	private String resultado;
-
+	Jugador jugador1;
+	Jugador jugador2;
+	Jugador jugadorTurnoActual;
+	Jugador jugadorEsperando;
+	private boolean jugando;
 	
 	public Partida(Jugador jug1, Jugador jug2) {
-			//inicializa toda la lista de casilleros	
+		this.jugador1 = jug1;
+		this.jugador2 = jug2;
+		//TODO sacar hardcode del tamaño del tablero. Discutir como vamos
+		// a inicializar los mapas.
+		this.tablero = new Tablero(10, 10);
+		// TODO inicializar todo el equipo
+		Modo optimusHumanoide = new Modo("Optimus Humanoide", 50, 2, 2);
+		Modo optimusAlterno = new Modo("Peterbilt 379", 15, 4, 5);
+		AlgoFormer optimus = new AlgoFormer("Optimus", 500, optimusHumanoide, optimusAlterno);
+		tablero.ponerAlgoformer(optimus, new Coordenada(1,1));
+		this.jugando = true;
 	}
 	
-	public void jugar(String accion, List<String> mov){
-		if (accion == "MOVER") {
-			this.mover(mov);
+	public void jugar(Accion accion) {
+		if (!jugando) {
+			throw new JuegoNoEstaActivoException();
 		}
+		accion.ejecutarSobre(this, this.tablero);
+		terminarTurno();
 	}
 	
-	public void mover(List<String> mov){
-		mov.get(0);
-		
-		
+	private void terminarTurno(){
+		// TODO Validar si termino el partido
+		// TODO Notificar a las cosas que duran X turnos
+		Jugador temp = jugadorTurnoActual;
+		jugadorTurnoActual = jugadorEsperando;
+		jugadorEsperando = temp;
 	}
 	
-	public AlgoFormer obtenerAlgoformer(String ubicacion) {
-		return this.tablero.contenidoCasillero(ubicacion);
+	public String obtenerAlgoformer(Coordenada ubicacion) {
+		return this.tablero.algoFormerEnCasillero(ubicacion).getNombre();
+	}
+
+	public boolean casilleroVacio(Coordenada ubicacion) {
+		return this.tablero.casilleroVacio(ubicacion);
 	}
 
 }

@@ -3,7 +3,7 @@ package fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlgoFormer {
+public class AlgoFormer implements Contenido {
 	
 	private String nombre;
 	private int puntosDeVida;

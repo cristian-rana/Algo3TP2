@@ -11,5 +11,7 @@ import java.util.List;
 		this.nombre = nombre;
 	}
 
-	
+	public Jugador(String nombre) {
+		this.nombre = nombre;
+	}
 }
