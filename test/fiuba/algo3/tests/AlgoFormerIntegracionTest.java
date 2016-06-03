@@ -35,7 +35,7 @@ SUPONGO:
 */
 
 
-public class AlgoFormerstest {
+public class AlgoFormerIntegracionTest {
 
 	@Test
 	public void test01moverAlgoFormer() {

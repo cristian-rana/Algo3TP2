@@ -1,5 +1,7 @@
-package fiuba.algo3.modelo;
+package fiuba.algo3.tests;
 
+import fiuba.algo3.modelo.AlgoFormer;
+import fiuba.algo3.modelo.Modo;
 import org.junit.Test;
 
 import org.junit.Assert;
