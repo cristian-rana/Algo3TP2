@@ -3,13 +3,18 @@ package fiuba.algo3.modelo;
 /**
  * Created by Julian Garate on 6/1/16.
  */
-public class Transformar {
-    private static Transformar ourInstance = new Transformar();
+public class Transformar implements Accion {
 
-    public static Transformar getInstance() {
-        return ourInstance;
+	private Coordenada posicionAlgoFormerATransformar;
+	
+    public Transformar(Coordenada posicionAlgoFormerATransformar) {
+    	this.posicionAlgoFormerATransformar = posicionAlgoFormerATransformar;
     }
 
-    private Transformar() {
-    }
+	@Override
+	public void ejecutarSobre(Partida partida, Tablero tablero) {
+		// TODO Validar el turno
+		AlgoFormer accionado = tablero.algoFormerEnCasillero(posicionAlgoFormerATransformar);
+		accionado.cambiarModo();
+	}
 }

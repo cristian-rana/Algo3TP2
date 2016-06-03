@@ -24,7 +24,6 @@ public class Mover implements Accion {
     	}
 		Coordenada origen = movimiento.remove(0);
 		Coordenada destino = movimiento.remove(movimiento.size() - 1);
-		System.out.println(origen);
 		AlgoFormer personaje = tablero.algoFormerEnCasillero(origen);
 		for (Coordenada coordenada : movimiento) {
 			tablero.atravesarCasillero(coordenada, personaje);

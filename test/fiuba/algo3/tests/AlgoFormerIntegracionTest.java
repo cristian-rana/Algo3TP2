@@ -83,62 +83,82 @@ public class AlgoFormerIntegracionTest {
 				.equalsIgnoreCase("Optimus"));
 	}
 
-//	@Test
-//	public void test02TransformarAlgoFormerAFormaAlterna() {
-//
-//
+	@Test
+	public void test02TransformarAlgoFormerAFormaAlterna() {
+
+		// TODO
 //		Jugador jugador1 = new Jugador("Nombre1", Decepticons);
 //		Jugador jugador2 = new Jugador("Nombre2", Autobots);
-//
-//		Partida partida = new Partida(jugador1, jugador2);
-//
-//        Coordenada unaCoordenada = new Coordenada(1,1);
-//
-//		partida.jugar(Transformar, unaCoordenada);
-//
-//		assertEquals((AlgoFormer)partida.obtenerContenido(unaCoordenada).getAvatar(),Alterno);
-//
-//        partida.jugar(Transformar,unaCoordenada);
-//
-//        assertEquals((AlgoFormer)partida.obtenerContenido(unaCoordenada).getAvatar(),Humanoide)
-//
-//
-//	}
-//
-//    @Test
-//    public void test03moverAlgoFormerAlterno(){
-//
-//        List<Coordenada> movimiento = new ArrayList<Coordenada>();
-//        
-//        int unTamanio = 15;
-//
-//        Coordenada coordenada0 = new Coordenada(1,1);
-//        Coordenada coordenada1 = new Coordenada(1,2);
-//        Coordenada coordenada2 = new Coordenada(1,3);
-//        Coordenada coordenada3 = new Coordenada(1,4);
-//
-//        movimiento.add(coordenada1);
-//        movimiento.add(coordenada2);
-//        movimiento.add(coordenada3);
-//        
-//        Jugador jugador1 = new Jugador("Nombre1", Decepticons);
-//        Jugador jugador2 = new Jugador("Nombre2", Autobots);
-//
-//
-//        Partida partida = new Partida(jugador1, jugador2, unTamanio);
-//
-//        partida.jugar(Transformar, coordenada0);
-//
-//        AlgoFormer unAlgoFormer = (AlgoFormer) partida.obtenerContenido(coordenada0);
-//
-//        Assert.assertEquals((AlgoFormer) partida.obtenerContenido(coordenada0).getAvatar,Alterno);
-//
-//        partida.jugar(Mover, movimiento);
-//
-//        Assert.assertEquals(unAlgoFormer,(AlgoFormer) partida.obtenerContenido(coordenada3));
-//
-//    }
-//
+
+		Jugador jugador1 = new Jugador("Nombre1");
+		Jugador jugador2 = new Jugador("Nombre2");
+
+		Partida partida = new Partida(jugador1, jugador2);
+
+        Coordenada unaCoordenada = new Coordenada(1,1);
+
+		Assert.assertTrue(partida.obtenerAlgoformer(unaCoordenada) 
+				.equalsIgnoreCase("Optimus"));
+        Assert.assertTrue(partida.obtenerModoAlgoformer(unaCoordenada)
+        		.equalsIgnoreCase("Optimus Humanoide"));
+
+        Transformar transformoOptimusHumanoideEnPeterbilt = new Transformar(unaCoordenada);
+		partida.jugar(transformoOptimusHumanoideEnPeterbilt);
+
+        Assert.assertTrue(partida.obtenerModoAlgoformer(unaCoordenada)
+        		.equalsIgnoreCase("Peterbilt 379"));
+
+        Transformar transformoOptimusPeterbiltEnHumanoide = new Transformar(unaCoordenada);
+		partida.jugar(transformoOptimusPeterbiltEnHumanoide);
+        Assert.assertTrue(partida.obtenerModoAlgoformer(unaCoordenada)
+        		.equalsIgnoreCase("Optimus Humanoide"));
+
+	}
+
+    @Test
+    public void test03moverAlgoFormerAlterno(){
+
+		List<Coordenada> movimiento = new ArrayList<Coordenada>();
+		Coordenada coordenada0 = new Coordenada(1,1);
+		Coordenada coordenada1 = new Coordenada(1,2);
+		Coordenada coordenada2 = new Coordenada(1,3);
+		Coordenada coordenada3 = new Coordenada(1,4);
+		movimiento.add(coordenada0);
+		movimiento.add(coordenada1);
+        movimiento.add(coordenada2);
+        movimiento.add(coordenada3);
+
+        // TODO
+//		Jugador jugador1 = new Jugador("Nombre1", Decepticons);
+//		Jugador jugador2 = new Jugador("Nombre2", Autobots);
+
+		Jugador jugador1 = new Jugador("Nombre1");
+		Jugador jugador2 = new Jugador("Nombre2");
+		
+		Partida partida = new Partida(jugador1, jugador2);
+
+		Assert.assertTrue(partida.obtenerAlgoformer(coordenada0) 
+				.equalsIgnoreCase("Optimus"));
+        Assert.assertTrue(partida.obtenerModoAlgoformer(coordenada0)
+        		.equalsIgnoreCase("Optimus Humanoide"));
+		Assert.assertTrue(partida.casilleroVacio(new Coordenada(1,2)));
+		Assert.assertTrue(partida.casilleroVacio(new Coordenada(1,3)));
+		Assert.assertTrue(partida.casilleroVacio(new Coordenada(1,4)));
+
+        Transformar transformoOptimusHumanoideEnPeterbilt = new Transformar(coordenada0);
+		partida.jugar(transformoOptimusHumanoideEnPeterbilt);
+		Mover muevoAOptimusEnEjeY = new Mover(movimiento);
+		partida.jugar(muevoAOptimusEnEjeY);
+		
+		Assert.assertTrue(partida.casilleroVacio(new Coordenada(1,1)));
+		Assert.assertTrue(partida.casilleroVacio(new Coordenada(1,2)));
+		Assert.assertTrue(partida.casilleroVacio(new Coordenada(1,3)));
+		Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(1,4)) 
+				.equalsIgnoreCase("Optimus"));
+        Assert.assertTrue(partida.obtenerModoAlgoformer(new Coordenada(1,4))
+        		.equalsIgnoreCase("Peterbilt 379"));
+    }
+
 //    @Test
 //    public void test04inicializarJuego() {
 //
