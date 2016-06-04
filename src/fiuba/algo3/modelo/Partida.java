@@ -42,7 +42,10 @@ public class Partida {
 	public String obtenerAlgoformer(Coordenada ubicacion) {
 		return this.tablero.algoFormerEnCasillero(ubicacion).getNombre();
 	}
-	
+
+	public String obtenerContenido(Coordenada ubicacion) {
+		return this.tablero.contenidoEnCasillero(ubicacion).getNombre();
+	}
 	public String obtenerModoAlgoformer(Coordenada ubicacion) {
 		return this.tablero.algoFormerEnCasillero(ubicacion).getAvatar();
 	}

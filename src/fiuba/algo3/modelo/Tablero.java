@@ -55,5 +55,9 @@ public class Tablero {
 		// TODO Obtener los bonificadores del camino?
 		// TODO Obtener la chispa?
 	}
+
+	public Contenido contenidoEnCasillero(Coordenada ubicacion) {
+		return(localizarCasillero(ubicacion).obtenerContenido());
+	}
 }
 

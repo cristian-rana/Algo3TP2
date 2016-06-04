@@ -96,7 +96,6 @@ public class AlgoFormerIntegracionTest {
 		Partida partida = new Partida(jugador1, jugador2);
 
         Coordenada unaCoordenada = new Coordenada(1,1);
-
 		Assert.assertTrue(partida.obtenerAlgoformer(unaCoordenada) 
 				.equalsIgnoreCase("Optimus"));
         Assert.assertTrue(partida.obtenerModoAlgoformer(unaCoordenada)
@@ -137,7 +136,7 @@ public class AlgoFormerIntegracionTest {
 		
 		Partida partida = new Partida(jugador1, jugador2);
 
-		Assert.assertTrue(partida.obtenerAlgoformer(coordenada0) 
+		Assert.assertTrue(partida.obtenerAlgoformer(coordenada0)
 				.equalsIgnoreCase("Optimus"));
         Assert.assertTrue(partida.obtenerModoAlgoformer(coordenada0)
         		.equalsIgnoreCase("Optimus Humanoide"));
@@ -159,110 +158,100 @@ public class AlgoFormerIntegracionTest {
         		.equalsIgnoreCase("Peterbilt 379"));
     }
 
-//    @Test
-//    public void test04inicializarJuego() {
-//
-//        /*
-//        Es un test SIMPLE que prueba que al crearse se inicialice la partida correctamente
-//        en un MAPA de 15x15.
-//         */
-//
-//        Jugador jugador1 = new Jugador("Nombre1", Decepticons);
-//        Jugador jugador2 = new Jugador("Nombre2", Autobots);
-//        
-//        int unTamanio = 15;
-//        
-//        Coordenada coordenada0 = new Coordenada(1,1);
-//        Coordenada coordenada1 = new Coordenada(2,3);
-//        Coordenada coordenada2 = new Coordenada(3,2);
-//        Coordenada coordenada3 = new Coordenada(15,15);
-//        Coordenada coordenada4 = new Coordenada(14,13);
-//        Coordenada coordenada5 = new Coordenada(13,14);
-//        Coordenada coordenada6 = new Coordenada(8,8);
-//
-//        ChispaSuprema unaChispa = new ChispaSuprema();
-//
-//
-//
-//        Partida partida = new Partida(jugador1, jugador2, unTamanio);
-//
-//        AlgoFormer OPTIMUS = new AlgoFormer(Optimus);
-//        AlgoFormer BUMBLEBEE = new AlgoFormer(Bumblebee);
-//        AlgoFormer RATCHET = new AlgoFormer(Ratchet);
-//
-//        AlgoFormer MEGATRON = new AlgoFormer(Megatron);
-//        AlgoFormer BONECRUSHER = new AlgoFormer(Bonecrusher);
-//        AlgoFormer FRENZY = new AlgoFormer(Frenzy);
-//
-//
-//        Assert.assertTrue(partida.CantidadDeTurnos == 0);
-//        Assert.assertEquals(unaChispa , (ChispaSuprema) partida.obtenerContenido(coordenada6));
-//        Assert.assertEquals(OPTIMUS, (AlgoFormer) partida.obtenerContenido(coordenada0));
-//        Assert.assertEquals(BUMBLEBEE, (AlgoFormer) partida.obtenerContenido(coordenada1));
-//        Assert.assertEquals(RATCHET, (AlgoFormer) partida.obtenerContenido(coordenada2));
-//        Assert.assertEquals(MEGATRON, (AlgoFormer) partida.obtenerContenido(coordenada3));
-//        Assert.assertEquals(BONECRUSHER,(AlgoFormer) partida.obtenerContenido(coordenada4));
-//        Assert.assertEquals(FRENZY, (AlgoFormer) partida.obtenerContenido(coordenada5));
-//
-//    }
-//
-//    @Test
-//    public void test05unPosicionamientoYAtaque() {
-//
-//        List<Coordenada> desdeHasta = new ArrayList<Coordenada>();
-//
-//        Jugador jugador1 = new Jugador("Nombre1", Decepticons);
-//        Jugador jugador2 = new Jugador("Nombre2", Autobots);
-//
-//        /*
-//        En un mapa de 5 pruebo, sobre lo inicializado, ataque valido e invalido.
-//         */
-//        int unTamanio = 5;
-//
-//        Partida partida = new Partida(jugador1, jugador2, unTamanio);
-//
-//
-//
-//        Coordenada coordenada0 = new Coordenada(1,1);
-//        Coordenada coordenada1 = new Coordenada(2,3);
-//        Coordenada coordenada2 = new Coordenada(3,2);
-//        Coordenada coordenada3 = new Coordenada(5,5);
-//        Coordenada coordenada4 = new Coordenada(3,4);
-//        Coordenada coordenada5 = new Coordenada(4,3);
-//        Coordenada coordenada6 = new Coordenada(3,3);
-//
-//        desdeHasta.add(coordenada3); //DESDE
-//        desdeHasta.add(coordenada0); //HASTA
-//
-//        AlgoFormer OPTIMUS = new AlgoFormer(Optimus);
-//        AlgoFormer FRENZY = new AlgoFormer(Frenzy);
-//
-//        partida.jugar(Atacar, desdeHasta);
-//
-//        /*
-//        Megatron(5,5) ataca a Optimus(1,1)
-//         */
-//
-//        AssertEquals( ((AlgoFormer) partida.obtenerContenido(coordenada0)).getPuntosDeVida() , OPTIMUS.getPuntosDeVida() );
-//        //Tiene que tener la vida completa, dado que el atacante esta muy lejos.
-//
-//        desdeHasta.clear();
-//
-//        desdeHasta.add(coordenada1); //DESDE
-//        desdeHasta.add(coordenada4); //HASTA
-//
-//        partida.jugar(Atacar, desdeHasta);
-//
-//        /*
-//        Bumblebee(2,3) ataca a Frenzy(3,4)
-//         */
-//
-//        AssertNotEquals( ((AlgoFormer) partida.obtenerContenido(coordenada4)).getPuntosDeVida() , FRENZY.getPuntosDeVida() );
-//        //NO tiene que tener los mismos puntos de vida porque fue atacado con exito.
-//
-//    }
+
+	@Test
+	public void test04inicializarJuego() {
+
+	/*
+	Es un test SIMPLE que prueba que al crearse se inicialice la partida correctamente
+	en un MAPA de 10x10.
+	*/
+
+	Jugador jugador1 = new Jugador("Nombre1");
+	Jugador jugador2 = new Jugador("Nombre2");
+
+	Partida partida = new Partida(jugador1, jugador2);
+
+
+    Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(1,1))
+            .equalsIgnoreCase("Optimus"));
+    Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(2,3))
+            .equalsIgnoreCase("Bumblebee"));
+    Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(3,2))
+            .equalsIgnoreCase("Ratchet"));
+    Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(10,10))
+            .equalsIgnoreCase("Megatron"));
+    Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(9,8))
+            .equalsIgnoreCase("Bonecrusher"));
+    Assert.assertTrue(partida.obtenerAlgoformer(new Coordenada(8,9))
+            .equalsIgnoreCase("Frenzy"));
+    Assert.assertTrue(partida.obtenerContenido(new Coordenada(5,5))
+            .equalsIgnoreCase("Chispa"));
+
+}
+    /*
+
+    @Test
+    public void test05unPosicionamientoYAtaque() {
+
+    List<Coordenada> desdeHasta = new ArrayList<Coordenada>();
+
+    List<Coordenada> movimiento = new ArrayList<Coordenada>();
+
+    movimiento.add(new Coordenada(8,9));
+    movimiento.add(new Coordenada(7,8));
+    movimiento.add(new Coordenada(6,7));
+
+
+    Jugador jugador1 = new Jugador("Nombre1");
+    Jugador jugador2 = new Jugador("Nombre2");
+
+    *//*
+    En un mapa de 15x15 pruebo, sobre lo inicializado, ataque valido e invalido.
+    *//*
+
+
+    Partida partida = new Partida(jugador1, jugador2);
+
+        Assert.assertEquals( partida.devolverAlgoformer(new Coordenada(2,3)).getPuntosDeVida() , 400 );
+        //Tiene que tener los mismos puntos de vida porque fue atacado sin exito.
 
 
 
+        Mover muevoFrenzy = new Mover(movimiento);
+    partida.jugar(muevoFrenzy);
+
+
+
+
+    Coordenada coordenada0 = new Coordenada(1,1);
+    Coordenada coordenada1 = new Coordenada(2,3);
+    Coordenada coordenada2 = new Coordenada(3,2);
+    Coordenada coordenada3 = new Coordenada(10,10);
+    Coordenada coordenada4 = new Coordenada(8,9);
+    Coordenada coordenada5 = new Coordenada(9,8);
+
+
+    *//*
+    Atacar Frenzy(6,7) al (2,3)
+    *//*
+
+    AssertEquals( ((AlgoFormer) partida.obtenerContenido(coordenada0)).getPuntosDeVida() , OPTIMUS.getPuntosDeVida() );
+    //Tiene que tener la vida completa, dado que el atacante esta muy lejos.
+
+    desdeHasta.clear();
+
+    partida.jugar(Atacar, coordenada1,coordenada2);
+
+    *//*
+    Bumblebee(2,3) ataca a Frenzy(3,4)
+    *//*
+
+    AssertNotEquals( ((AlgoFormer) partida.obtenerContenido(coordenada4)).getPuntosDeVida() , FRENZY.getPuntosDeVida() );
+    //NO tiene que tener los mismos puntos de vida porque fue atacado con exito.
+
+    }
+
+*/
 
 }
