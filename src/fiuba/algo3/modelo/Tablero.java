@@ -13,8 +13,8 @@ public class Tablero {
 		this.largoX = largoX;
 		this.largoY = largoY;
 		casilleros = new ArrayList<Casillero>(largoX * largoY);
-		for (int i = 0; i < largoX; ++i) {
-			for (int j = 0; j < largoX; ++j) {
+		for (int i = 1; i <= largoX; ++i) {
+			for (int j = 1; j <= largoX; ++j) {
 				casilleros.add(new Casillero(new Coordenada(i, j)));
 			}
 		}
@@ -42,7 +42,10 @@ public class Tablero {
 	public void ponerAlgoformer(AlgoFormer personaje, Coordenada ubicacion) {
 		localizarCasillero(ubicacion).ponerAlgoformer(personaje);
 	}
-	
+    public void ponerChispaSuprema( ChispaSuprema chispaSuprema, Coordenada ubicacion) {
+        localizarCasillero(ubicacion).ponerContenido(chispaSuprema);
+    }
+
 	// TODO Por ahora solamente se saca el algoformer. Habria que ver que pasa
 	// en el caso de los bonus, etc... O los saca al "atravesar"?
 	public void sacarElemento(Contenido elemento, Coordenada ubicacion) {
@@ -54,6 +57,10 @@ public class Tablero {
 		// TODO Hacer que la superficie actue sobre el personaje
 		// TODO Obtener los bonificadores del camino?
 		// TODO Obtener la chispa?
+	}
+
+	public Contenido contenidoEnCasillero(Coordenada ubicacion) {
+		return(localizarCasillero(ubicacion).obtenerContenido());
 	}
 }
 

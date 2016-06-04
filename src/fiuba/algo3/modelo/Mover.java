@@ -19,12 +19,15 @@ public class Mover implements Accion {
 
 	@Override
 	public void ejecutarSobre(Partida partida, Tablero tablero) {
+		int cantMov;
     	if (movimiento == null || movimiento.size() < 2) {
     		throw new MovimientoInvalidoException();
     	}
 		Coordenada origen = movimiento.remove(0);
+		cantMov = movimiento.size();
 		Coordenada destino = movimiento.remove(movimiento.size() - 1);
 		AlgoFormer personaje = tablero.algoFormerEnCasillero(origen);
+		personaje.validarMovimiento(cantMov);
 		for (Coordenada coordenada : movimiento) {
 			tablero.atravesarCasillero(coordenada, personaje);
 		}

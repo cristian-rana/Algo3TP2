@@ -4,16 +4,20 @@ public class Casillero {
 	
 	private Coordenada posicion;
 	private AlgoFormer algoformer;
-	
+	private Contenido contenido;
+		
 	public Casillero(Coordenada posicion) {
 		this.posicion = posicion;
 		this.algoformer = null;
 	}
 	
 	// TODO ver como usar esto en lugar de cada metodo por separado
-	public void ponerContenido(Contenido contenido) {
-		
-	}
+    public void ponerContenido(Contenido unContenido) {
+        if (this.contenido != null) {
+            throw new CasilleroOcupadoException();
+        }
+        this.contenido = unContenido;
+    }
 
 	public void ponerAlgoformer(AlgoFormer personaje) {
 		if (this.algoformer != null) {
@@ -44,5 +48,12 @@ public class Casillero {
 		// TODO Eventualmente podria contemplar que este la chispa o haya
 		// un bonus
 		return this.algoformer == null;
+	}
+
+	public Contenido obtenerContenido() {
+		if (this.contenido == null) {
+			throw new CasilleroVacioException();
+		}
+		return this.contenido;
 	}
 }
