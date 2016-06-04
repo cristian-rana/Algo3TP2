@@ -12,9 +12,12 @@ public class Casillero {
 	}
 	
 	// TODO ver como usar esto en lugar de cada metodo por separado
-	public void ponerContenido(Contenido unContenido) {
-		
-	}
+    public void ponerContenido(Contenido unContenido) {
+        if (this.contenido != null) {
+            throw new CasilleroOcupadoException();
+        }
+        this.contenido = unContenido;
+    }
 
 	public void ponerAlgoformer(AlgoFormer personaje) {
 		if (this.algoformer != null) {

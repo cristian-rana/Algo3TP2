@@ -3,21 +3,20 @@ package fiuba.algo3.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlgoFormer implements Contenido {
+abstract class AlgoFormer implements Contenido {
 	
-	private String nombre;
-	private int puntosDeVida;
-	private Modo modoActivo;
-	private Modo modoInactivo;
+    String nombre;
+    int puntosDeVida;
+    Modo modoActivo;
+	Modo modoInactivo;
 
-	public AlgoFormer(String nombre, int puntosDeVida, Modo modoHumanoide, Modo modoAlterno) {
+	/*public AlgoFormer(String nombre, int puntosDeVida, Modo modoHumanoide, Modo modoAlterno) {
 		this.nombre = nombre;
 		this.puntosDeVida = puntosDeVida;
 		this.modoActivo = modoHumanoide;
 		this.modoInactivo = modoAlterno;
 	}
-
-
+    */
 
 	public String getNombre() {
 		return this.nombre;

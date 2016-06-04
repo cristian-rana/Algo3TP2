@@ -16,10 +16,16 @@ public class Partida {
 		// a inicializar los mapas.
 		this.tablero = new Tablero(10, 10);
 		// TODO inicializar todo el equipo
-		Modo optimusHumanoide = new Modo("Optimus Humanoide", 50, 2, 2);
-		Modo optimusAlterno = new Modo("Peterbilt 379", 15, 4, 5);
-		AlgoFormer optimus = new AlgoFormer("Optimus", 500, optimusHumanoide, optimusAlterno);
-		tablero.ponerAlgoformer(optimus, new Coordenada(1,1));
+
+		tablero.ponerAlgoformer(new Optimus(), new Coordenada(1,1));
+        tablero.ponerAlgoformer(new Bumblebee(), new Coordenada(2,3));
+        tablero.ponerAlgoformer(new Ratchet(), new Coordenada(3,2));
+        tablero.ponerAlgoformer(new Megatron(), new Coordenada(10,10));
+        tablero.ponerAlgoformer(new Bonecrusher(), new Coordenada(8,9));
+        tablero.ponerAlgoformer(new Frenzy(),new Coordenada(9,8));
+
+        tablero.ponerChispaSuprema(new ChispaSuprema(),new Coordenada(5,5));
+
 		this.jugando = true;
 	}
 	
